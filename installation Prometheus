@@ -63,14 +63,14 @@ After=network-online.target
 
 [Service]
 User=prometheus
-ExecStart=/opt/prometheus-2.47.0.linux-amd64/prometheus \
+ExecStart=/usr/local/bin/prometheus \
  --config.file=/etc/prometheus/prometheus.yml \
- --storage.tsdb.path=/var/lib/prometheus/ \
- --web.console.templates=/opt/prometheus-2.47.0.linux-amd64/consoles \
- --web.console.libraries=/opt/prometheus-2.47.0.linux-amd64/console_libraries
+ --storage.tsdb.path=/var/lib/prometheus/
+
 
 [Install]
 WantedBy=multi-user.target
+
 Reload systemd to apply the changes and start Prometheus:
 
 sudo systemctl daemon-reload
@@ -79,10 +79,13 @@ sudo systemctl enable prometheus
 You can check the status of the Prometheus service to ensure it’s running without issues:
 
 sudo systemctl status prometheus
-Step 5. Configure Firewall.
 
-Now we set up an Uncomplicated Firewall (UFW) with Prometheus to allow public access on default web ports 9090:
+могут возникнуть пробемы с портом 9090 
+для устранения делаем следующие действия 
+смотрим статус ошибок для этого используем команду 
+sudo systemctl status prometheus
 
-sudo ufw allow OpenSSH
-sudo ufw allow 9090/tcp
-sudo ufw enable
+
+
+
+
