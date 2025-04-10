@@ -41,7 +41,7 @@ node_exporter --version
 ## 7. Создание файла службы Systemd
 Создайте файл службы для Node Exporter:
 ```
-sudo vim /etc/systemd/system/node_exporter.service
+sudo nano /etc/systemd/system/node_exporter.service
 ```
 Вставьте следующий код:
 
@@ -87,7 +87,7 @@ journalctl -u node_exporter -f --no-pager
 ##1. Редактирование конфигурации Prometheus
 Откройте файл конфигурации Prometheus:
 ```
-sudo vim /etc/prometheus/prometheus.yml
+sudo nano /etc/prometheus/prometheus.yml
 ```
 Добавьте следующую конфигурацию:
 ```
