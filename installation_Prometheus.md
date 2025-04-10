@@ -56,7 +56,7 @@ chown -R prometheus:prometheus /etc/prometheus /var/lib/prometheus
 chown prometheus:prometheus /usr/local/bin/{prometheus,promtool}
 ```
 ## Шаг 4: Создание службы systemd для Prometheus
-1.**Создайте новый файл unit для systemd:**
+1.**Создайте новый сервис unit для systemd:**
 ```
 sudo nano /etc/systemd/system/prometheus.service
 ```
@@ -82,8 +82,8 @@ sudo systemctl daemon-reload
 ```
 4.**Запустите Prometheus:**
 ```
-sudo systemctl start prometheus
-```
+sudo systemctl restart prometheus
+``` 
 5.**Включите Prometheus для автоматического запуска при загрузке:**
 ```
 sudo systemctl enable prometheus
@@ -92,7 +92,7 @@ sudo systemctl enable prometheus
 ```
 sudo systemctl status prometheus
 ```
-## Шаг 5: Устранение проблем с портом 9090
+## Мои ошибки : Устранение проблем с портом 9090
 #### Если у вас возникли проблемы с портом 9090, выполните следующие действия:
 
 1.**Проверьте статус службы для выявления ошибок:**
