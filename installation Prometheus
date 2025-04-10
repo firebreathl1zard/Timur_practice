@@ -80,10 +80,17 @@ You can check the status of the Prometheus service to ensure it’s running with
 
 sudo systemctl status prometheus
 
-могут возникнуть пробемы с портом 9090 
+у меня возникли пробемы с портом 9090 
 для устранения делаем следующие действия 
 смотрим статус ошибок для этого используем команду 
 sudo systemctl status prometheus
+
+чтобы узнать PID я использовал команду ps aux 
+далее нашел нужный мне пид и отключил данный пид командой 
+kill -9 (PID)  
+далее я использовал команду 
+ sudo systemctl куstart prometheus
+
 
 
 
