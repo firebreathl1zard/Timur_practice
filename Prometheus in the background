@@ -1,0 +1,24 @@
+ Использование системного менеджера (например, systemd)
+
+1.Создайте файл службы, например, /etc/systemd/system/prometheus.service
+( [Unit]
+Description=Prometheus Monitoring System
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User =your_user
+Group=your_group
+Type=simple
+ExecStart=/path/to/prometheus --config.file=/path/to/prometheus.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target )
+
+2.Замените your_user, your_group, и пути к исполняемому файлу и конфигурации на ваши значения.
+
+3.Перезагрузите systemd и запустите службу:
+  sudo systemctl daemon-reload
+  sudo systemctl start prometheus
+  sudo systemctl enable prometheus
