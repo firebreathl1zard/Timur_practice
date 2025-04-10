@@ -8,7 +8,7 @@
 - [ ] Изучение MD (markdown)
 - [ ] Изучение yaml(yml) формата
 ---
-- [*] Настройка prometheus
+- [X] Настройка prometheus
 - [ ] Настройка node_exporter
 - [ ] Настройка grafana
 ---
