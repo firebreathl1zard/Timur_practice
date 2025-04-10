@@ -1,61 +1,67 @@
-# установка Prometheus # 
-## Скачайте последнюю версию Prometheus для своей платформы, затем распакуйте и запустите её ##
-#### wget https://github.com/prometheus/prometheus/releases/download/v3.3.0-rc.1/prometheus-3.3.0-rc.1.linux-amd64.tar.gz ####
-### tar xvfz prometheus-*.tar.gz ###
+# Установка Prometheus
+
+## Шаг 1: Скачивание и распаковка Prometheus
+
+1. **Скачайте последнюю версию Prometheus для вашей платформы:**
+```terminall
+   wget https://github.com/prometheus/prometheus/releases/download/v3.3.0-rc.1/prometheus-3.3.0-rc.1.linux-amd64.tar.gz 
+```
+2.**Распакуйте архив**
+```terminall
+tar xvfz prometheus-*.tar.gz
+```
+
+3.**Перейдите в каталог с распакованными файлами:**
+```terminall
 cd prometheus-3.3.0-rc.1.linux-amd64/
-Запуск " Прометея "
-./prometheus --config.file=prometheus.yml
-чтобы зайти на Prometheus используйте (ip-adress на котором установлена Prometheus :9090)   
+```
 
-Установка (копирование файлов)
+## Шаг 2: Установка (копирование файлов)
 
-Для начала создаем каталоги, в которые скопируем файлы для prometheus:
-
+1.**Создайте каталоги для Prometheus:**
+```
 mkdir /etc/prometheus /var/lib/prometheus
+```
 
-Распакуем наш архив:
-
+2.**Распакуйте архив (если еще не распаковали):**
+``` 
 tar -zxf prometheus-*.linux-amd64.tar.gz
-
-... и перейдем в каталог с распакованными файлами:
-
+```
+3.**Перейдите в каталог с распакованными файлами:**
+```
 cd prometheus-*.linux-amd64
+```
 
-Распределяем файлы по каталогам:
-
+4.**Распределите файлы по каталогам:**
+```
 cp prometheus promtool /usr/local/bin/
 cp prometheus.yml /etc/prometheus
-
-
-Выходим из каталога и удаляем исходник:
-
-cd .. && rm -rf prometheus-*.linux-amd64/ && rm -f prometheus-*.linux-amd64.tar.gz
-
-НАЗНАЧЕНИЯ ПРАВ 
-
-Создаем пользователя, от которого будем запускать систему мониторинга:
-
+```
+5.**Выходите из каталога и удалите исходники:**
+```
 useradd --no-create-home --shell /bin/false prometheus
+```
+## Шаг 3: Назначение прав
 
-* мы создали пользователя prometheus без домашней директории и без возможности входа в консоль сервера.
-
-
-Задаем владельца для каталогов, которые мы создали на предыдущем шаге:
-
+1.**Создайте пользователя для Prometheus:**
+```
+useradd --no-create-home --shell /bin/false prometheus
+```
+2.**Задайте владельца для каталогов:**
+```
 chown -R prometheus:prometheus /etc/prometheus /var/lib/prometheus
-
-Задаем владельца для скопированных файлов:
-
+```
+3**Задайте владельца для скопированных файлов:**
+```
 chown prometheus:prometheus /usr/local/bin/{prometheus,promtool}
-
-
-Step 4. Create Prometheus Systemd Service.
-
-Create a new systemd unit file for Prometheus:
-
+```
+## Шаг 4: Создание службы systemd для Prometheus
+1.**Создайте новый файл unit для systemd:**
+```
 sudo nano /etc/systemd/system/prometheus.service
-Add the following content to the unit file:
-
+```
+2.**Добавьте следующее содержимое в файл:**
+```
 [Unit]
 Description=Prometheus Monitoring
 Wants=network-online.target
@@ -67,29 +73,49 @@ ExecStart=/usr/local/bin/prometheus \
  --config.file=/etc/prometheus/prometheus.yml \
  --storage.tsdb.path=/var/lib/prometheus/
 
-
 [Install]
 WantedBy=multi-user.target
-
-Reload systemd to apply the changes and start Prometheus:
-
+```
+3.**Перезагрузите systemd, чтобы применить изменения:**
+```
 sudo systemctl daemon-reload
+```
+4.**Запустите Prometheus:**
+```
 sudo systemctl start prometheus
+```
+5.**Включите Prometheus для автоматического запуска при загрузке:**
+```
 sudo systemctl enable prometheus
-You can check the status of the Prometheus service to ensure it’s running without issues:
-
+```
+6.**Проверьте статус службы Prometheus:**
+```
 sudo systemctl status prometheus
+```
+## Шаг 5: Устранение проблем с портом 9090
+#### Если у вас возникли проблемы с портом 9090, выполните следующие действия:
 
-у меня возникли пробемы с портом 9090 
-для устранения делаем следующие действия 
-смотрим статус ошибок для этого используем команду 
+1.**Проверьте статус службы для выявления ошибок:**
+```
 sudo systemctl status prometheus
+```
+2.**Чтобы узнать PID процесса, использующего порт, выполните:**
+```
+ps aux | grep prometheus
+```
+3.**Найдите нужный PID и завершите процесс:**
+```
+kill -9 <PID>
+```
+4.**Перезапустите Prometheus:**
+```
+sudo systemctl start prometheus
+```
+__Теперь Prometheus должен работать без проблем на порту 9090.__
 
-чтобы узнать PID я использовал команду ps aux 
-далее нашел нужный мне пид и отключил данный пид командой 
-kill -9 (PID)  
-далее я использовал команду 
- sudo systemctl куstart prometheus
+
+
+
 
 
 
