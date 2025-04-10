@@ -13,8 +13,8 @@
 ---
 ## monitoring:
 - [X] Настройка prometheus
-- [ ] Настройка node_exporter
-- [ ] Настройка grafana
+- [X] Настройка node_exporter
+- [X] Настройка grafana
 ---
 ## docker:
 - [ ] базовое использование
