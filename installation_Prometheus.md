@@ -1,7 +1,7 @@
 # установка Prometheus # 
-Скачайте последнюю версию Prometheus для своей платформы, затем распакуйте и запустите её
-wget https://github.com/prometheus/prometheus/releases/download/v3.3.0-rc.1/prometheus-3.3.0-rc.1.linux-amd64.tar.gz
-tar xvfz prometheus-*.tar.gz
+## Скачайте последнюю версию Prometheus для своей платформы, затем распакуйте и запустите её ##
+### wget https://github.com/prometheus/prometheus/releases/download/v3.3.0-rc.1/prometheus-3.3.0-rc.1.linux-amd64.tar.gz ###
+### tar xvfz prometheus-*.tar.gz ###
 cd prometheus-3.3.0-rc.1.linux-amd64/
 Запуск " Прометея "
 ./prometheus --config.file=prometheus.yml
