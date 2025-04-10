@@ -4,3 +4,4 @@ wget https://github.com/prometheus/prometheus/releases/download/v3.3.0-rc.1/prom
 tar xvfz prometheus-*.tar.gz
 Запуск " Прометея "
 ./prometheus --config.file=prometheus.yml
+чтобы зайти на Prometheus используйте (ip-adress на котором установлена Prometheus :9090)   
