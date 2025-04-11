@@ -1,4 +1,4 @@
-# Установка Node Exporter на Ubuntu 22.04
+# Установка Node Exporter 
 
 ## 1. Создание системного пользователя
 Для начала создадим системного пользователя для Node Exporter:
@@ -103,7 +103,7 @@ promtool check config /etc/prometheus/prometheus.yml
 ## 3. Перезагрузка Prometheus
 Перезагрузите конфигурацию Prometheus:
 ```
-curl -X POST http://localhost:9090/-/reload
+sudo systemctl restart node_exporter
 ```
 ## 4. Проверка целей
 Убедитесь, что Node Exporter добавлен в список целей:
