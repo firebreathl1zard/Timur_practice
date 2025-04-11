@@ -32,7 +32,9 @@
 # Ссылки чтоб можно было что либо посмотреть:
 - 10.3.21.10:
   - grafana - 3000
-  - aergebn - port    
+  - node_exporter - 
+  - prometheus - 9090
+
 -
 -
 -----
