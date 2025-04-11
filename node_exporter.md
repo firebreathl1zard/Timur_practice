@@ -26,7 +26,7 @@ tar -xvf node_exporter-1.9.1.linux-amd64.tar.gz
 ## 4. Перемещение бинарного файла
 Переместите бинарный файл в папку /usr/local/bin:
 ```
-sudo mv node_exporter-1.6.1.linux-amd64/node_exporter /usr/local/bin/
+sudo mv node_exporter-1.9.1.linux-amd64/node_exporter /usr/local/bin/
 ```
 ## 5. Очистка
 Удалите архив и папку:
