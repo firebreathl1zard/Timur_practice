@@ -4,7 +4,7 @@
 
 1. **Скачайте последнюю версию Prometheus для вашей платформы:**
 ```terminall
-   wget https://github.com/prometheus/prometheus/releases/download/v3.3.0-rc.1/prometheus-3.3.0-rc.1.linux-amd64.tar.gz 
+wget https://github.com/prometheus/prometheus/releases/download/v3.3.0-rc.1/prometheus-3.3.0-rc.1.linux-amd64.tar.gz 
 ```
 2.**Распакуйте архив**
 ```terminall
