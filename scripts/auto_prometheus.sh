@@ -11,6 +11,10 @@ mkdir /etc/prometheus /var/lib/prometheus
 cp prometheus promtool /usr/local/bin/
 cp prometheus.yml /etc/prometheus
 
+cd ..
+
+rm -rf prometheus-*
+
 useradd --no-create-home --shell /bin/false prometheus
 
 chown -R prometheus:prometheus /etc/prometheus /var/lib/prometheus
