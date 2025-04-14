@@ -8,10 +8,6 @@ cd prometheus-3.3.0-rc.1.linux-amd64/
 
 mkdir /etc/prometheus /var/lib/prometheus
 
-tar -zxf prometheus-*.linux-amd64.tar.gz
-
-cd prometheus-*.linux-amd64
-
 cp prometheus promtool /usr/local/bin/
 cp prometheus.yml /etc/prometheus
 
