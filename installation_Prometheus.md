@@ -37,10 +37,7 @@ cd prometheus-*.linux-amd64
 cp prometheus promtool /usr/local/bin/
 cp prometheus.yml /etc/prometheus
 ```
-5.**Выходите из каталога и удалите исходники:**
-```
-useradd --no-create-home --shell /bin/false prometheus
-```
+
 ## Шаг 3: Назначение прав
 
 1.**Создайте пользователя для Prometheus:**
